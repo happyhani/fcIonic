@@ -1,0 +1,25 @@
+<!DOCTYPE html >
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<h1>{{carname}}</h1>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.carname = "Volvo";
+});
+</script>
+
+<p>控制器中创建一个属性名 "carname"，对应了视图中使用 {{ }} 中的名称。</p>
+</body>
+</html>

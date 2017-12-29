@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+      .highlight {
+         transition: 1s linear all;
+      }
+
+     .highlight.on-add {
+         background: white;
+      }
+      .highlight.on {
+	  background: yellow;
+      }
+      .highlight.on-remove {
+          background: black;
+      }
+     </style>
+     <script src="angular.min.js"></script>
+     <script src="angular-animate.min.js"></script>
+     <script type="text/javascript">
+       (function () {
+         var app = angular.module('cssClassBasedAnimationTest', ['ngAnimate']);
+       })();
+      </script>
+</head>
+<body ng-app="cssClassBasedAnimationTest" ng-init="bool=true">
+  <div ng-class="{on:onOff}" class="highlight">
+     Highlight this box
+  </div>
+  <button ng-click="onOff=!onOff">Toggle</button>
+</body>
+</html>

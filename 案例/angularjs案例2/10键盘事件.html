@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="angular.min.js"></script>
+<style>
+button{
+	width:120px;
+	height:80px;
+	background-color:#cfcfcf;
+}
+div{
+	font-size:24px;
+}
+
+</style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="LearnCtrl-keyDown">
+		<input type="text" ng-keydown="keydown($event)"/>
+		<textarea cols="30" rows="10" ng-keydown="keydown($event)">keydown</textarea>
+	</div>
+	<hr>
+	<div ng-controller="LearnCtrl-keyUp">
+		<input type="text" ng-keyup="keyup($event)"/>
+		<textarea cols="30" rows="10" ng-keyup="keyup($event)">keyup</textarea>
+	</div>
+	<hr>
+	<div ng-controller="LearnCtrl-keyPress">
+		<input type="text" ng-keypress="keypress($event)"/>
+		<textarea cols="30" rows="10" ng-keypress="keypress($event)">keypress</textarea>
+	</div>
+<script>
+	var app = angular.module('myApp', []);
+	//keyDown
+        app.controller('LearnCtrl-keyDown', function ($scope) {
+            $scope.keydown = function ($event) {
+                alert($event.keyCode);
+            }
+        });
+	//keyUp
+		app.controller('LearnCtrl-keyUp', function ($scope) {
+            $scope.keyup = function ($event) {
+                alert($event.keyCode);
+            }
+        });
+	//keyPress
+		app.controller('LearnCtrl-keyPress', function ($scope) {
+            $scope.keypress = function ($event) {
+                alert($event.keyCode);
+            }
+        });
+		
+</script>
+</body>
+</html>

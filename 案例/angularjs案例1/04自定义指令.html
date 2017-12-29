@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body>
+
+<body ng-app="myApp">
+
+<h1>元素名调用指令：</h1>
+<runoob-directive></runoob-directive>
+
+
+<h1>属性调用指令：</h1>
+<div runoob-directive></div>
+
+
+<h1>类名调用指令：</h1>
+<div class="runoob-directive"></div>
+
+
+
+
+
+
+<script>
+var app = angular.module("myApp", []);
+app.directive("runoobDirective", function() {
+    return {
+        template : "<h1>自定义指令!</h1>"
+    };
+});
+</script>
+
+</body>
+
+<p style="color:#f00;">注释：上面示例中module 方法的第一个参数为模块的名称，第二个参数为它的依赖模块列表。我们创建了一个独立的模块，不依赖于其它模块。所以第二个参数为空数组（注意：即使它为空，我们也必须填写这个参数。否则，该方法回去检索之前的同名模块）。<br />
+<br />
+名称为app的模块依赖于controls和data模块<br />
+写法为：angular.module("app", [ "controls", "data"])</p>
+
+
+</body>
+
+</html>

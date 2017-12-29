@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+
+
+<h1>ng-app 指令告诉 AngularJS，div 元素是 AngularJS 应用程序 的"所有者"。</h1>
+<h1>ng-init 指令初始化应用程序数据。</h1>
+<h1>ng-model 指令用于绑定应用程序数据到 HTML 控制器(input, select, textarea)的值。</h1>
+<br />
+<br />
+
+<h2>示例一：</h2>
+<div ng-app="" ng-init="firstName='John'">
+<p>在输入框中尝试输入:</p>
+<p>姓名: <input type="text" ng-model="firstName"></p>
+<p>你输入的为: {{ firstName }}</p>
+
+<br />
+<br />
+
+
+
+
+
+<h2>示例二：重复 HTML 元素</h2>
+<div ng-app="" ng-init="names=['a','b','c']">
+  <p>使用 ng-repeat 来循环数组</p>
+  <ul>
+    <li ng-repeat="x in names">
+      {{ x }}
+    </li>
+  </ul>
+</div>
+<br />
+<br />
+
+
+
+
+
+
+
+</div>
+<script src="angular.min.js"></script>
+</body>
+</html>

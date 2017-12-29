@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="angular.min.js"></script>
+<style>
+button{
+	width:120px;
+	height:80px;
+	background-color:#cfcfcf;
+}
+div{
+	font-size:24px;
+}
+
+</style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="LearnCtrl">
+		<div ng-click="click()">click</div>
+		<button ng-click="click()">click</button>
+	</div>
+	<br/><br/>
+	<div ng-controller="LearnCtrl-dblclick">
+		<div ng-dblclick="dblclick()">dblclick</div>
+		<button ng-dblclick="dblclick()">dblclick</button>
+	</div>
+	<br/><br/>
+	<div ng-controller="LearnCtrl-mousedown">
+		<button ng-mousedown="mousedown($event)">mousedown</button>
+	</div>
+	<br/><br/>
+	<div ng-controller="LearnCtrl-up">
+		<button ng-mouseup="mouseup($event)">mouseup</button>
+	</div>
+	<br/><br/>
+	<div ng-controller="LearnCtrl-enter">
+		<button ng-mouseenter="mouseenter($event)">mouseenter</button>
+	</div>
+	<br/><br/>
+	<div ng-controller="LearnCtrl-leave">
+		<button ng-mouseleave="mouseleave($event)">mouseleave</button>
+	</div>
+	<br/><br/>
+	<div ng-controller="LearnCtrl-move">
+		<button ng-mousemove="mousemove($event)">mousemove</button>
+	</div>
+	<br/><br/>
+   <script>
+	var app = angular.module('myApp', [])
+	//click
+        app.controller('LearnCtrl', function ($scope) {
+            $scope.click = function () {
+                alert('单击事件');
+            }
+        });
+	
+	//Dblclick
+		app.controller('LearnCtrl-dblclick', function ($scope) {
+            $scope.dblclick = function () {
+                alert('双击事件');
+            }
+        });
+		
+	//mousedown
+		app.controller('LearnCtrl-mousedown', function ($scope) {
+            $scope.mousedown = function ($event) {
+                alert($event.which);
+            }
+        });
+	//mouseup
+		app.controller('LearnCtrl-up', function ($scope) {
+            $scope.mouseup = function ($event) {
+                alert($event.which);
+            }
+        });
+	//mouseenter
+		app.controller('LearnCtrl-enter', function ($scope) {
+            $scope.mouseenter = function ($event) {
+                alert($event.which);
+            }
+        });
+	//mouseleave
+		app.controller('LearnCtrl-leave', function ($scope) {
+            $scope.mouseleave = function ($event) {
+                alert($event.which);
+            }
+        });
+	//mousemove
+		app.controller('LearnCtrl-move', function ($scope) {
+            $scope.mousemove = function ($event) {
+                alert($event.which);
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<h1>{{name}}</h1>
+		</div>
+		<p>控制器中创建一个属性名 "name"，对应了视图中使用 {{ }} 中的名称。</p>
+	</body>
+		<script src="js/angular-1.3.0.js"></script>
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope) {
+				$scope.name = "Tom";
+			});
+		</script>
+
+</html>

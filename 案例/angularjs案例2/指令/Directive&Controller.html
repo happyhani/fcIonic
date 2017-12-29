@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="MyModule">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div ng-controller="MyCtrl">
+			<loader >滑动加载</loader>
+		</div>
+		<!--<div ng-controller="MyCtrl2">
+			<loader howToLoad="loadData2()">滑动加载</loader>
+		</div>-->
+	</body>
+	<script src="../angular.min.js"></script>
+	<!--<script src="Directive&Controller.js"></script>-->
+	<script>
+		var MyModule = angular.module('MyModule',[]);
+		MyModule.controller('MyCtrl',function ($scope) {
+			$scope.loadData= function () {
+				console.log('加载中。。。。。。');
+			};
+		})
+		MyModule.directive('loader',function () {
+			return {
+				restrict:'AE',
+				link:function (scope,element,attrs) {
+					element.bind('mouseenter',function (event) {
+//						scope.loadData();
+						scope.$apply('loadData()');
+						scope.$apply(attrs.howtoload);
+					})
+				}
+			}
+		})
+	</script>
+</html>

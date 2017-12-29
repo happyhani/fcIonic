@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="aa" >
+			只有当触发UI事件，ajax请求或者 timeout 延迟，才会触发脏检查。
+		</div>
+		<h1>脏检查的优点</h1>
+		<p>经过我们上面的分析，可以总结：
+
+简单理解，一次脏检查就是调用一次 $apply() 或者 $digest(),将数据中最新的值呈现在界面上。
+而每次 UI 事件变更，ajax 还有 timeout 都会触发 $apply()。
+然而就有了接下来的讨论?
+
+不断触发脏检查是不是一种好的方式？
+有很多人认为，这样对性能的损耗很大，不如 setter 和 getter 的观察者模式。 但是我们看下面这个例子</p>
+		<div ng-controller="appController">
+            <span ng-bind="data"></span>
+            <button myclick>click</button>
+        </div>
+        
+		<script src="js/angular-1.3.0.js"></script>
+		<script type="text/javascript">
+			var app = angular.module('app', []);
+			app.directive('myclick', function() {
+			    return function(scope, element, attr) {
+			        element.on('click', function() {
+			            scope.data++;
+			            console.log(scope.data);
+			             scope.$digest();
+			
+			        })
+			    }
+			})
+			app.controller('appController', function($scope) {
+			    $scope.data = 0;
+			});
+		</script>
+	</body>
+</html>

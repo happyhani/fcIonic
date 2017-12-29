@@ -1,0 +1,142 @@
+<ion-view view-title="学习页面" hide-nav-bar="true" hide-tabs="true">
+	<style type="text/css">
+		.col_style {
+			background: #ccc;
+			text-align: center;
+		}
+		
+		/*目录列表*/
+		.list_mulu {
+			padding-left: 1.8rem;
+			overflow-y: scroll;
+		}
+		.circle{
+			padding-left:0.6rem;
+			border-left:1px dashed #ccc;
+			position:relative;
+			line-height:1.5rem;
+			height:1.5rem;
+		}
+	    .span_title{
+	    	width:4.6rem;
+	    	text-overflow:ellipsis;
+	    	white-space:nowrap;
+	    	overflow:hidden;
+	    }
+	    .span_time{
+	    	width:3rem;
+	    	float:right;
+	    }
+	    .span_cir{
+	    	width:0.3rem;
+	    	height:0.3rem;
+	    	background:url(img/study_circle.png) no-repeat;
+	    	position:absolute;
+	    	top:0.6rem;
+	    	left:-0.17rem;
+	    	background-size:100% 100%;
+	    }
+	</style>
+	<div class="study_top" style="position:fixed; top:0; left:0; width:100%; z-index=999">
+		
+		<!--视频-->
+		<div style="width: 100%; height: 5.96rem;">
+			<video controls loop  src="../video/mov_aaa.mp4" style="width: 100%;"></video>
+		</div>
+		
+		 <!--目录和详情的切换按钮-->
+	    <div class="row row_style" style="background:#ccc">
+	      <div class="col col-50 col_style"  id="mulu" ng-click="mulu()" ng-style="mulucolor" style="border-right:2px solid #fff">
+	      	目录<i class="icon ion-chevron-down" ></i>
+	      </div>
+	      <div class="col col-50 col_style " id="xiangqing" ng-click="xiangq()" ng-style="xqcolor">
+	      	详情<i class="icon ion-chevron-down"></i>
+	      </div>
+	    </div>
+	    
+	</div>
+	
+	
+  <ion-content style="margin-top: 7.1rem;">
+  	
+  	<!--目录列表-->
+  	<div class="content" ng-show="muluList">
+  		<!--标题-->
+		<div class="list" style="margin-bottom: 0;">
+			<a class="item">前端开发</a>
+		</div>
+  		<!--目录列表-->	
+		<div class="list_mulu">
+			<div class="circle" ng-repeat="studyItem in studyMulu">
+				<span class="span_time">{{studyItem.time}}</span>
+	            <div class="span_title">{{studyItem.title}}</div>
+	            <span class="span_cir"></span>
+			</div>
+		</div>
+		<div style="height:1.3rem;"></div>
+  	</div>
+  	
+  	<!--详情列表-->
+  	<div class="content" ng-show="xiangqList">
+  		<!--标题-->
+		<div class="list" style="margin-bottom: 0;">
+			<a class="item" style="color: #0a9ec7;">前端评价</a>
+		</div>
+  		<!--详情列表-->	
+		<div class="list">
+			<div class="item item-avatar-left" ng-repeat="xiangqItem in studyXiangq">
+				<img src="{{xiangqItem.pic}}"/>
+				<span>{{xiangqItem.name}}</span>
+				<span style="float: right;">{{xiangqItem.title}}</span>
+				<p>{{xiangqItem.cont}}</p>
+			</div>
+		</div>
+		<div style="height:1.3rem;"></div>
+  	</div>
+  	
+  	
+  </ion-content>
+  
+  <!--底部导航-->
+  	<div class="tabs tabs-icon-top">
+	  <a class="tab-item" ng-click="modal.show()">
+	    <i class="icon ion-edit"></i>
+	    评价
+	  </a>
+	  <a class="tab-item">
+	    <i class="icon ion-ios-star-outline"></i>
+	   收藏
+	  </a>
+	  <a class="tab-item">
+	    <i class="icon ion-ios-download-outline"></i>
+	    购买
+	  </a>
+	</div>
+	
+	<!--评价模板-->
+	<script id="templates/modal.html" type="text/ng-template">
+	  <div id="task-view" class="modal slide-in-up" ng-controller="TaskCtrl">
+	  	
+	      <header class="bar bar-header bar-positive">
+	        <h1 class="title">写评论</h1>
+	        <button class="button button-clear button-primary" ng-click="close()">关闭</button>
+	      </header>
+	      
+	      <div class="padding has-header" style="width:92%; height: 6rem; overflow: hidden; border:1px solid #ccc; margin:20% 5% 5%;">
+	        <textarea  placeholder="吐槽、表扬、鼓励……想说啥就说啥！" rows="11" cols="50" maxlength="300" ng-model = "textareaValue"></textarea>
+	      </div>
+	      <p style="text-align:right; margin-right: 20px; color:#ccc">300</p>
+	      
+	      <div class="row">
+	        <div class="col col-33"></div>
+	        <div class="col col-33">
+	          <button class="button button-block button-positive" ng-click="createContact()" style="margin:0 auto;">提交</button>
+	        </div>
+	        <div class="col col-33"></div>
+	      </div>
+	      
+	  </div>
+	</script>
+
+  
+</ion-view>

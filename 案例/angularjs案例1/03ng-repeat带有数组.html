@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<h1>ng-repeat 指令（带有数组）</h1>
+<div ng-app="" ng-init="names=['a1','a2','a3']">
+<p>使用 ng-repeat 来循环数组</p>
+<ul>
+<li ng-repeat="x in names">
+{{ x }}
+</li>
+</ul>
+</div>
+<br />
+<br />
+
+
+
+<script src="angular.min.js"></script>
+</body>
+</html>

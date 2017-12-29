@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<div ng-app="" ng-init="quantity=1;price=5">
+
+<h2>价格计算器</h2>
+
+数量: <input type="number" ng-model="quantity">
+价格: <input type="number" ng-model="price">
+
+<p><b>总价:</b> {{quantity * price}}</p>
+
+
+
+<p style="color:#f00;">注释：实例中的 {{ firstName }} 表达式是一个 AngularJS 数据绑定表达式。
+AngularJS 中的数据绑定，同步了 AngularJS 表达式与 AngularJS 数据。
+{{ firstName }} 是通过 ng-model="firstName" 进行同步。：</p>
+</div>
+</body>
+<script src="angular.min.js"></script>
+</html>

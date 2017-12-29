@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<script src="angular.min.js"></script>
+	</head>
+
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+
+			<h1>ng-options创建选择框</h1>
+			<select ng-model="selectedName" ng-init="selectedName = names[0]" ng-options="x for x in names">
+			</select>
+			<!--ng-init 设置默认选中值。-->
+			<h1>ng-repeat创建选择框</h1>
+			<select>
+				<option ng-repeat="x in names">{{x}}</option>
+			</select>
+
+		</div>
+
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope) {
+				$scope.names = ["baidu", "taobao", "meituan"];
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+        <title>AngularJS 路由实例</title>
+    </head>
+    <body ng-app='routingApp'>
+     
+        <h2>AngularJS 路由应用</h2>
+        <ul>
+            <li><a href="#/">首页</a></li>
+            <li><a href="#/computers">电脑</a></li>
+            <li><a href="#/printers">打印机</a></li>
+            <li><a href="#/blabla">其他</a></li>
+        </ul>
+         
+        <div ng-view></div>
+        <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+        <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+        <script>
+            angular.module('routingApp',['ngRoute'])
+            .config(['$routeProvider', function($routeProvider){
+                $routeProvider
+                .when('/',{template:'这是首页页面'})//如果我们只需要在 ng-view 中插入简单的 HTML 内容，则使用该参数：
+                .when('/computers',{templateUrl: 'views/computers.html',})
+                .when('/printers',{template:'这是打印机页面'})
+                .otherwise({redirectTo:'/'});
+            }]);
+            //templateUrl：如果我们只需要在 ng-view 中插入 HTML 模板文件，从服务端获取 views/computers.html 文件内容插入到 ng-view 中。
+        </script>
+     
+     
+    </body>
+</html>

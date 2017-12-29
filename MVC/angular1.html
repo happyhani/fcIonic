@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+	<head>
+		<meta charset="UTF-8">
+		<title>angular 示例</title>
+	</head>
+	<body>
+		<div ng-controller="myCtrl">
+			<p>{{name}}</p>  <!--表达式-->
+		</div>
+		
+		
+		<!--双向数据绑定：-->
+		<input type="text" ng-model="text"/> <!-- 数据模型-->
+		<p>{{text}}，你好</p>				 <!--视图-->
+		
+	</body>
+	<script src="js/angular-1.3.0.js"></script>
+	<script src="js/angular-animate.min.js"></script>
+	<script>
+		var app = angular.module('myApp',[]);
+		app.controller('myCtrl',function ($scope) {
+			$scope.name = 'Tom';
+		})
+	</script>
+</html>

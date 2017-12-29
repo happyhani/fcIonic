@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="ionic">
+<head>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../lib/css/ionic.min.css">
+    <style type="text/css">
+        ion-slide div{
+            width:100%;
+            height:600px;
+            text-align:center;
+
+        }
+
+        ion-slide img{
+            height:500px;
+        }
+
+    </style>
+</head>
+<body>
+
+	<!--<ion-slide-box>
+		<ion-slide>
+			<div class="box positive-bg">first</div>
+		</ion-slide>
+		<ion-slide>
+			<div class="box energized-bg">second</div>
+		</ion-slide>
+		<ion-slide>
+			<div class="box balanced-bg">thread</div>
+		</ion-slide>
+	</ion-slide-box>-->
+	
+	<ion-list show-delete="shouldShowDelete">
+	  <ion-item>
+	    <ion-delete-button class="ion-minus-circled"></ion-delete-button>
+	    Hello, 列表项!
+	  </ion-item>
+	</ion-list>
+	
+	<ion-toggle ng-model="shouldShowDelete">
+	  显示删除?
+	</ion-toggle>
+</body>
+</html>

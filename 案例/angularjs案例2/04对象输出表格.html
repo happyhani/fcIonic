@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<h1>使用对象循环输出一个表格</h1>
+<table ng-controller="myCtrl" border="1">
+	<tr ng-repeat="(x, y) in myObj">
+	  <td>{{x}}</td>
+	  <td>{{y}}</td>  
+	</tr>
+</table>
+
+<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+  $scope.myObj = {
+    "Name" : "Alfreds Futterkiste",
+    "Country" : "Germany",
+    "City" : "Berlin"
+  }
+});
+</script>
+
+</body>
+</html>

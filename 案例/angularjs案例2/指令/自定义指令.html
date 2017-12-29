@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="MyModule">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		
+		<hello></hello>
+		
+		<div hello></div>
+		
+		<div class="hello"></div>
+		
+		<!-- directive:hello -->
+		<div></div>
+		
+		<my-app></my-app>
+	</body>
+	<script src="../angular.min.js"></script>
+	<script>
+		var app = angular.module('MyModule',[]);
+		app.directive('hello',function () {
+			return {
+				restrict:'AEMC',
+				template:'<div>hello,world!</div>',   
+				replace:true
+			}
+		});
+		
+		app.directive('myApp',function () {
+			return {
+				restrict:'AEMC',
+				template:'<div>hello,angular!</div>',   
+				replace:true
+			}
+		})
+		
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<script src="angular.min.js"></script>
+</head>
+
+<body ng-app="">
+<p>ng-model 指令可以为应用数据提供状态值(invalid, dirty, touched, error):</p>
+
+
+
+<h1>验证用户输入：</h1>
+<form name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+</form>
+
+<br />
+<br />
+<br />
+
+
+<h1>应用状态：</h1>
+<form name="myForm2" ng-init="myText = 'test@runoob.com'">
+    Email:
+    <input type="email" name="myAddress" ng-model="myText" required></p>
+    <p>编辑邮箱地址，查看状态的改变。</p>
+<h1>状态</h1>
+<p>Valid: {{myForm2.myAddress.$valid}} (如果输入的值是合法的则为 true)。</p>
+<p>Dirty: {{myForm2.myAddress.$dirty}} (如果值改变则为 true)。</p>
+<p>Touched: {{myForm2.myAddress.$touched}} (如果通过触屏点击则为 true)。</p>
+<br />
+<br />
+
+<p>文本域添加了 required 属性，该值是必须的，如果为空则是不合法的,验证是否已输入字符</p>
+</form>
+
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+</body>
+</html>

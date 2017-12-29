@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="LearnCtrl-focus">
+      <a href="" ng-focus="focus()">link</a>
+      <input type="text" ng-focus="focus()"/>
+      <textarea cols="30" rows="10" ng-focus="focus()"></textarea>
+      <select ng-focus="focus()">
+          <option>----</option>
+          <option>jacky</option>
+          <option>rose</option>
+      </select>
+	</div>
+	<hr>
+	<div ng-controller="LearnCtrl-blur">
+      <a href="" ng-blur="blur()">link</a>
+      <input type="text" ng-blur="blur()"/>
+      <textarea cols="30" rows="10" ng-blur="blur()"></textarea>
+      <select ng-focus="blur()">
+          <option>----</option>
+          <option>jacky</option>
+          <option>rose</option>
+      </select>
+	</div>
+	<hr>
+	<div ng-controller="LearnCtrl-change">
+      <input type="text" ng-model="text" ng-change="change()" ng-minlength="5"/>
+   </div>
+<script>
+	var app = angular.module('myApp', []);
+	//focus
+	app.controller('LearnCtrl-focus', function ($scope) {
+            $scope.focus= function () {
+                alert('focus');
+            }
+        });
+	//blur
+	app.controller('LearnCtrl-blur', function ($scope) {
+            $scope.blur= function () {
+                alert('blur');
+            }
+        });
+	//change
+	app.controller('LearnCtrl-change', function ($scope) {
+            $scope.change = function () {
+                alert('change');
+            }            
+        });
+</script>
+
+</body>
+</html>

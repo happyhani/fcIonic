@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<p>选择的网站是:</p>
+
+<select ng-model="selectedSite" ng-options="x for (x, y) in sites">
+</select>
+
+<h1>你选择的值是: {{selectedSite}}</h1>
+
+</div>
+
+<p>该实例演示了使用对象作为创建下拉列表。</p>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.sites = {
+	    site01 : "baidu",
+	    site02 : "taobao",
+	    site03 : "tianmao"
+	};
+});
+</script>
+
+</body>
+</html>

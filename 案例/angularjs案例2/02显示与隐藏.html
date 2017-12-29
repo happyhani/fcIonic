@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="personCtrl-show">
+	<button ng-click="toggle()">隐藏/显示</button>
+	<p ng-show="myVarShow">
+	名: <input type=text ng-model="person.firstName"><br>
+	姓: <input type=text ng-model="person.lastName"><br><br>
+	姓名: {{person.firstName + " " + person.lastName}}
+	</p>
+</div>
+
+<div ng-controller="personCtrl-hide">
+	<button ng-click="toggle()">隐藏/显示</button>
+	<p ng-hide="myVarHide">
+	名: <input type="text" ng-model="firstName"><br>
+	姓: <input type="text" ng-model="lastName"><br><br>
+	姓名: {{firstName + " " + lastName}}
+	</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+//show
+app.controller('personCtrl-show', function($scope) {
+    $scope.person = {
+        firstName: "John",
+        lastName: "Doe"
+    };
+    $scope.myVarShow = true;
+    $scope.toggle = function() {
+        $scope.myVarShow = !$scope.myVarShow;
+    };
+});
+//hide
+app.controller('personCtrl-hide', function($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe"
+    $scope.myVarHide = false;
+    $scope.toggle = function() {
+        $scope.myVarHide = !$scope.myVarHide;
+    }
+});
+</script>
+
+</body>
+</html>

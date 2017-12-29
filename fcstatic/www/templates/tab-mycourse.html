@@ -1,0 +1,84 @@
+<ion-view view-title="我的课程" hide-nav-bar="true">
+	<style>
+		
+		.row_style {
+	  		border-bottom: 1px solid #ccc;
+	  	}
+	  	.col_style {
+	  		line-height: 25px;
+	  		text-align: center;
+	  	}
+	  	li{
+	  		list-style-type: none;
+	  	}
+	    .content li img{
+	    	float:left;
+	    	width:35%;
+	    }
+	    .content li article{
+	    	float: left;
+	    	width:50%;
+	    	margin-left:20px;
+	    }
+	</style>
+  <ion-content>
+		<!--头部-->
+    <div class="bar bar-header">
+    	<h1 class="title">我的课程</h1>
+    	<button class="button" ng-click="data.showDelete = !data.showDelete">编辑</button>
+    	<!--每点击一次，data.showDelete值取反-->
+    </div>
+    
+    <div style="height: 45px;"></div>
+    
+    <!--课程切换-->
+    <div class="row row_style">
+		<div class="col col-50 col_style" id="myLesson" style="border-right: 1px solid #e8e8e8;" ng-click="myLesson()" ng-style="myColor">
+			我的课程<i class="icon ion-chevron-down" style="margin-left: 10px;"></i> 
+		</div>
+		<div class="col col-50 col_style" id="myCollect" ng-click="myCollect()" ng-style="scColor">
+			收藏课程<i class="icon ion-chevron-down" style="margin-left: 10px;"></i>  
+		</div>
+	</div>
+		
+		
+		<!--我的课程-->
+    <div class="content ionic-pseudo"  ng-show="mycou">
+      <ion-list  show-delete="data.showDelete" >
+        <ion-item ng-repeat="item in itemFir">
+          <li>
+            <img src="{{item.imgsrc}}">
+            <article>
+              <h2>{{item.title}}</h2>
+              <p><span>{{item.num}}</span>
+                <span>{{item.nums}}</span>
+              </p>
+            </article>
+          </li>
+          <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>
+          <ion-option-button class="button-calm" ng-click="doShare(item)">分享</ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
+    
+    <!--收藏课程-->
+    <div class="content ionic-pseudo" ng-show="mycol">
+      <ion-list  show-delete="data.showDelete">
+        <ion-item  ng-repeat="item in itemSec">
+          <li>
+            <img src="{{item.imgsrc}}">
+            <article>
+              <h2>{{item.title}}</h2>
+              <p>
+              	<span>{{item.num}}</span>
+                <span>{{item.nums}}</span>
+              </p>
+            </article>
+          </li>
+          <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>
+          <ion-option-button class="button-calm" ng-click="doShare(item.ID)">分享</ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-view>
